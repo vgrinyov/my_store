@@ -8,5 +8,7 @@ class CreateItems < ActiveRecord::Migration[5.0]
       t.string  :description
       t.timestamps
     end
+    add_index :items, :price
+    add_index :items, :name
   end
 end
