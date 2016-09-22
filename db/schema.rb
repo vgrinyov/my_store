@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160922205612) do
+ActiveRecord::Schema.define(version: 20160922194922) do
 
   create_table "items", force: :cascade do |t|
     t.float    "price"
     t.string   "name"
     t.boolean  "real"
     t.float    "weight"
+    t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.string   "description"
   end
 
 end
