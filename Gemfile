@@ -46,3 +46,8 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# Protect attributes from mass-assignment in Active Record models.
+# This plugin adds the class methods attr_accessible and attr_protected to your models to be able to declare white or black lists of attributes
+
+#gem 'protected_attributes'
