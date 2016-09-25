@@ -4,10 +4,21 @@ class ItemsController < ApplicationController
     render text: @items.map { |i| "#{i.name}: #{i.price}"}.join("<br/>")
   end
 
-  # /items/1 GET
+  # /items/1 GET var1
+=begin
   def show
-    @item = Item.where(id: params[:id]).first
-    render "items/show"
+    if @item = Item.where(id: params[:id]).first
+      render "items/show"
+    else
+      render text: "Page no found", status: 404
+    end
+  end
+=end
+  # /items/1 GET var2
+  def show
+    unless @item = Item.where(id: params[:id]).first
+      render text: "Page no found", status: 404
+    end
   end
 
   # /items/new  GET
