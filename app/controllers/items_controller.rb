@@ -6,6 +6,8 @@ class ItemsController < ApplicationController
 
   # /items/1 GET
   def show
+    @item = Item.where(id: params[:id]).first
+    render "items/show"
   end
 
   # /items/new  GET
