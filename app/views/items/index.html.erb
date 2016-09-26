@@ -9,6 +9,7 @@
     <th>name</th>
     <th>price</th>
     <th></th>
+    <th></th>
   </tr>
 
 <% @items.each do |i| %>
@@ -17,6 +18,7 @@
     <td><%= i.id %></td>
     <td><%= link_to i.name, item_path(i) %></td>
     <td><%= i.price %></td>
+    <td>Рейтинг: <%= i.votes.count %>, <%= link_to "+", upvote_item_path(i) %></td>
     <td><%= link_to "Удалить", i, method: :delete, data: {confirm: "Удалить товар?"} %></td>
   </tr>
 

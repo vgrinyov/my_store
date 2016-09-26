@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   # Filters
-  before_filter :find_item, only: [:show, :edit, :update, :destroy]
+  before_filter :find_item, only: [:show, :edit, :update, :destroy, :upvote]
   before_filter :check_if_admin, only: [:edit, :update, :new, :create, :destroy]
 
   def index
@@ -27,6 +27,10 @@ class ItemsController < ApplicationController
     end
   end
 
+  def expensive
+    @item = Item.where("price > 1000")
+    render "index"
+  end
   # /items/new  GET
   def new
     @item = Item.new
@@ -63,6 +67,10 @@ class ItemsController < ApplicationController
     redirect_to action: "index"
   end
 
+  def upvote
+    @item.increment!(:votes_count)
+    redirect_to action: index
+  end
   private
   def item_params
     params.require(:item).permit(:id, :name, :description, :price, :weight )
@@ -76,6 +84,6 @@ class ItemsController < ApplicationController
   private
   def check_if_admin
     #render text: "Access denied", status: 403 unless current_user.admin == true
-    render text: "Access denied", status: 403 unless params[:admin]
+    #render html: "Access denied", status: 403 unless params[:admin]
   end
 end
