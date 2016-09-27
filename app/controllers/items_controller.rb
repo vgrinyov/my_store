@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all
-    render text: @items.map { |i| "#{i.name}: #{i.price}"}.join("<br/>")
+    render html: @items.map { |i| "#{i.name}: #{i.price}"}.join("<br/>")
   end
 
   # /items/1 GET var1
@@ -42,7 +42,7 @@ class ItemsController < ApplicationController
 
   # /items POST
   def create
-    #params.permit!
+    params.permit!
     @item = Item.create(item_params)
     if @item.errors.empty?
       redirect_to items_path(@item), :notice => "Your item was saved" # /items/:id
@@ -71,19 +71,16 @@ class ItemsController < ApplicationController
     @item.increment!(:votes_count)
     redirect_to action: index
   end
+
   private
+
   def item_params
     params.require(:item).permit(:id, :name, :description, :price, :weight )
   end
 
-  private
   def find_item
-    @item = Item.find(params[:id])
+    @item = Item.where(id: params[:id]).first
+    render_404 unless @item
   end
 
-  private
-  def check_if_admin
-    #render text: "Access denied", status: 403 unless current_user.admin == true
-    #render html: "Access denied", status: 403 unless params[:admin]
-  end
 end
