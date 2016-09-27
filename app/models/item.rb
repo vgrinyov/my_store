@@ -7,6 +7,7 @@ class Item < ApplicationRecord
 
   has_many :positions
   has_many :carts, through: :positions
+  has_many :comments, as: :commentable
   # callbacks
 
   after_initialize { puts "initialized"} # Item.new; Item.first
