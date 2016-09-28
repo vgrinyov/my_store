@@ -60,3 +60,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # This plugin adds the class methods attr_accessible and attr_protected to your models to be able to declare white or black lists of attributes
 
 #gem 'protected_attributes'
+
+# For Authenications
+gem 'devise'
