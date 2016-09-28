@@ -43,8 +43,9 @@ class ItemsController < ApplicationController
   # /items POST
   def create
     params.permit!
-    @item = Item.create(item_params)
+    @item = Item.new(item_params)
     if @item.errors.empty?
+      @item.save
       redirect_to items_path(@item), :notice => "Your item was saved" # /items/:id
     else
       render "new"
