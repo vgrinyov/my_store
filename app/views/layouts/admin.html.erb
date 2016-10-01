@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MyStore</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+  <div class="adminPanel">
+    Useful links here...
+  </div>
+  <div class="sessionInfo">
+    <% if current_user %>
+      <%= current_user.login %> | <%= link_to "Sing out", destroy_user_session_path %>
+    <% else %>
+      <%= link_to "Sing in", new_user_session_path %> | <%= link_to "Registration", new_user_registration_path %>
+    <% end %>
+  </div>
+    <%= yield %>
+  </body>
+</html>
