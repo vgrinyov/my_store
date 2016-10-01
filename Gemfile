@@ -27,12 +27,15 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'thin'
+gem 'rack'
+#gem 'rmagick'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 # for upload pics
 # gem 'paperclip'
-#gem 'carrierwave'
+gem 'carrierwave'
 
 
 group :development, :test do
@@ -63,3 +66,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # For Authenications
 gem 'devise'
+
+# Markup
+
+gem 'haml-rails'

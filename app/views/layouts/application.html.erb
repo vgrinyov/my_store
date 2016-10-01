@@ -16,6 +16,8 @@
       <%= link_to "Sing in", new_user_session_path %> | <%= link_to "Registration", new_user_registration_path %>
     <% end %>
   </div>
+    <p style="color: red"> <%= flash[:error]%></p>
+    <p style="color: red"> <%= flash[:success]%></p>
     <%= yield %>
   </body>
 </html>
