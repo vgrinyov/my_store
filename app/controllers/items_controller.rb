@@ -37,9 +37,8 @@ class ItemsController < ApplicationController
   # /items POST
   def create
     params.permit!
-    @item = Item.new(item_params)
+    @item = Item.create(item_params)
     if @item.errors.empty?
-      @item.save
       redirect_to items_path(@item), :notice => "Your item was saved" # /items/:id
     else
       render "new"
@@ -48,7 +47,7 @@ class ItemsController < ApplicationController
 
   # /items/1 PUT
   def update
-    @item.update_attributes(params[:item])
+    @item.update_attributes(item_params)
     if @item.errors.empty?
       flash[:success] = "Item successfully updated!"
       redirect_to items_path(@item), :notice => "Your item was saved" # /items/:id
@@ -71,15 +70,14 @@ class ItemsController < ApplicationController
 
   private
 
-=begin
-  def item_params
-    params.require(:item).permit(:id, :name, :description, :price, :weight )
-  end
-=end
-
   def find_item
     @item = Item.where(id: params[:id]).first
     render_404 unless @item
+  end
+
+  def item_params
+    params.require(:item).permit(:price, :weight, :real, :name, :description )
+    # params.require(:item).permit! # permit all parameters in the model
   end
 
 end
