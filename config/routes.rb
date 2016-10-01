@@ -12,5 +12,5 @@ Rails.application.routes.draw do
     get :expensive, on: :collection
   end
 
-  match "admin/users_count" => "admin#users_count"
+  get "admin/users_count" => "admin#users_count"
 end
