@@ -38,6 +38,10 @@ gem 'rack'
 # gem 'paperclip'
 gem 'carrierwave'
 
+#for test
+
+gem 'rspec-rails'
+gem 'factory_girl'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -45,8 +49,8 @@ group :development, :test do
 end
 
 group :test do
-  #gem 'rspec-rails'
-  #gem 'factory-girl'
+#  gem 'rspec-rails'
+#  gem 'factory-girl'
 end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
