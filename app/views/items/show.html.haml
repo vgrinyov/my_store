@@ -4,5 +4,5 @@
 %ui
   %li= "#{@item.price} грв."
   %li= urls_to_links(urls_to_images(@item.description))
-  %li weight: #{@item.weight} кг.
+  %li t("item.weight") #{@item.weight} кг.
 
