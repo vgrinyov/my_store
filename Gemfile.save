@@ -9,7 +9,6 @@ gem 'sqlite3'
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
-gem 'bootstrap-sass'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -28,15 +27,12 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'thin'
-gem 'rack'
-#gem 'rmagick'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 # for upload pics
 # gem 'paperclip'
-gem 'carrierwave'
+  gem 'carrierwave'
 
 
 group :development, :test do
@@ -64,11 +60,12 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # This plugin adds the class methods attr_accessible and attr_protected to your models to be able to declare white or black lists of attributes
 
 #gem 'protected_attributes'
-
+gem 'thin'
+gem 'rmagick
+'
 # For Authenications
 gem 'devise'
 
-# Markup
+# markup
 
 gem 'haml-rails'
-gem 'simple_form'
