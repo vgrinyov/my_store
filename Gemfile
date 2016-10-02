@@ -72,3 +72,7 @@ gem 'devise'
 
 gem 'haml-rails'
 gem 'simple_form'
+
+# mail notification
+
+gem 'exception_notification'
